@@ -1,6 +1,6 @@
 <?php
 //快速排序算法 例子
-
+$mem = memory_get_usage();
 //要排序的数组
 function QuickSort(&$arr = []){
    $len = count($arr);
@@ -19,7 +19,10 @@ function QuickSort(&$arr = []){
    $right =    QuickSort($rightArr);  //右边排序
   return array_merge($left,[$pivot],$right);
 }
-
-$arr = [5,2,3,1,23,9,5,3,11,34,5,23,12,1,22,12,13,14,8,7];
+$arr = [];
+for($i=0; $i < 1000; $i ++){
+   $arr[] = mt_rand(1,10000);
+}
 $sortArr = QuickSort($arr);
 print_r($sortArr);
+echo round((memory_get_usage()-$mem)/1024/2014,2) . 'M'.PHP_EOL;   //看看要多少内存
