@@ -17,7 +17,7 @@ function ShiftOneToLeft(&$string){
 * @param $string 要转的字符串
 * @param $n   要转的字符个数
 *
-/
+*/
 function ReverseString(&$string,$n){
    while($n --){
         ShiftOneToLeft($string);
